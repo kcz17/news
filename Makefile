@@ -1,24 +1,17 @@
-NAME = weaveworksdemos/catalogue
-DBNAME = weaveworksdemos/catalogue-db
+NAME = kcz17/news
+DBNAME = kcz17/news-db
 
-TAG=$(TRAVIS_COMMIT)
-
-INSTANCE = catalogue
+INSTANCE = news
 
 .PHONY: default copy test
 
 default: test
 
 release:
-	docker build -t $(NAME) -f ./docker/catalogue/Dockerfile .
+	docker build -t $(NAME) -f ./docker/news/Dockerfile .
 
-test: 
-	GROUP=weaveworksdemos COMMIT=test ./scripts/build.sh
-	./test/test.sh unit.py
-	./test/test.sh container.py --tag $(TAG)
-
-dockertravisbuild: build
-	docker build -t $(NAME):$(TAG) -f docker/catalogue/Dockerfile-release docker/catalogue/
-	docker build -t $(DBNAME):$(TAG) -f docker/catalogue-db/Dockerfile docker/catalogue-db/
-	docker login -u $(DOCKER_USER) -p $(DOCKER_PASS)
-	scripts/push.sh
+#dockertravisbuild: build
+#	docker build -t $(NAME):$(TAG) -f docker/news/Dockerfile-release docker/news/
+#	docker build -t $(DBNAME):$(TAG) -f docker/news-db/Dockerfile docker/news-db/
+#	docker login -u $(DOCKER_USER) -p $(DOCKER_PASS)
+#	scripts/push.sh

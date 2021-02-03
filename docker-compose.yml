@@ -1,12 +1,12 @@
 version: '2'
 
 services:
-    catalogue:
+    news:
         build:
             context: .
-            dockerfile: ./docker/catalogue/Dockerfile
-        image: weaveworksdemos/catalogue
-        hostname: catalogue
+            dockerfile: ./docker/news/Dockerfile
+        image: kcz17/news
+        hostname: news
         restart: always
         cap_drop:
             - all
@@ -17,11 +17,11 @@ services:
             - reschedule=on-node-failure
         ports:
             - "8080:80"
-    catalogue-db:
+    news-db:
         build:
-            context: ./docker/catalogue-db/
-        image: weaveworksdemos/catalogue-db
-        hostname: catalogue-db
+            context: ./docker/news-db/
+        image: kcz17/news-db
+        hostname: news-db
         restart: always
         environment:
             - reschedule=on-node-failure
