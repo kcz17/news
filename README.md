@@ -1,4 +1,7 @@
 # News
+
+[![](https://images.microbadger.com/badges/image/kcz17/news.svg)](http://microbadger.com/images/kcz17/news "Get your own image badge on microbadger.com")
+
 A Sock Shop service that provides news/update information.
 
 ### To build this service
