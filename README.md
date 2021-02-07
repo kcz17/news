@@ -34,3 +34,7 @@ To run it use:
 
 ### Use the service endpoints
 `curl http://localhost:8080/news`
+
+### Releasing
+- `docker build -t kcz17/news:[VERSION] -f docker/news/Dockerfile .`
+- `docker build -t kcz17/news-db:[VERSION] docker/news-db`
