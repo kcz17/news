@@ -28,10 +28,11 @@ require (
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/sony/gobreaker v0.0.0-20160504140302-809bcd5a528f
 	github.com/streadway/handy v0.0.0-20160402200321-f450267a206e // indirect
-	github.com/stretchr/testify v1.1.5-0.20161217200445-2402e8e7a02f // indirect
 	github.com/weaveworks/common v0.0.0-20170321114712-f94043b3da14
-	golang.org/x/net v0.0.0-20190311183353-d8887717615a
+	golang.org/x/exp v0.0.0-20210405174845-4513512abef3 // indirect
+	golang.org/x/net v0.0.0-20190620200207-3b0461eec859
 	golang.org/x/sync v0.0.0-20201207232520-09787c993a3a // indirect
+	gonum.org/v1/gonum v0.9.1
 	google.golang.org/grpc v1.2.0 // indirect
 	gopkg.in/DATA-DOG/go-sqlmock.v1 v1.1.4
 )

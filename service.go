@@ -5,10 +5,12 @@ package news
 
 import (
 	"errors"
+	"golang.org/x/exp/rand"
 	"time"
 
 	"github.com/go-kit/kit/log"
 	"github.com/jmoiron/sqlx"
+	"gonum.org/v1/gonum/stat/distuv"
 )
 
 // Service is the news service, providing read operations on a saleable
@@ -63,6 +65,17 @@ func (s *newsService) List() ([]NewsItem, error) {
 	if err != nil {
 		s.logger.Log("database error", err)
 		return []NewsItem{}, ErrDBConnection
+	}
+
+	// Set the random seed to the current time for sufficient uniqueness.
+	randSeed := uint64(time.Now().UTC().UnixNano())
+	delay := distuv.Normal{
+		Mu:    1,
+		Sigma: 1,
+		Src:   rand.NewSource(randSeed),
+	}.Rand()
+	if delay > 0 {
+		time.Sleep(time.Duration(delay) * time.Second)
 	}
 
 	return newsItems, nil
